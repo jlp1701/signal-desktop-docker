@@ -1,0 +1,12 @@
+version: "2.5"
+services:
+  signal-docker:
+    build: .
+    image: signal-docker
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - REPLACE_ME:/home/siguser/.config/Signal
